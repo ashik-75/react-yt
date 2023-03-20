@@ -10,7 +10,7 @@ export const users: UserType[] = [
   },
   {
     id: 2,
-    name: "Peter Johns",
+    name: "Peter John",
     position: "Senior Art Director",
     image:
       "https://images.pexels.com/photos/709188/pexels-photo-709188.jpeg?auto=compress&cs=tinysrgb&w=200",
