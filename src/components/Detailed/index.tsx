@@ -7,7 +7,7 @@ function Detailed() {
     <div>
       <div className=" relative h-[220px] w-full bg-[url('/blog-3.jpg')] bg-cover bg-center">
         <img
-          src="/man.jpg"
+          src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
           alt=""
           className="w-24 h-24 sm:h-32 sm:w-32 translate-y-[50%] translate-x-[25%] object-cover object-center border-4 rounded-full bottom-0 absolute"
         />
