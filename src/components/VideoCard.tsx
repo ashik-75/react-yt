@@ -46,10 +46,12 @@ function VideoCard({
 
       <div className="pt-3">
         <h1 className="font-medium">{title.slice(0, 60)}</h1>
-        <p className="flex gap-2 items-center">
-          <span className="font-bold">{channelTitle}</span>
-          <CheckedIcon />
-        </p>
+        <Link to={`/channel/${channelId}`}>
+          <p className="flex gap-2 items-center hover:underline">
+            <span className="font-bold">{channelTitle}</span>
+            <CheckedIcon />
+          </p>
+        </Link>
         <p>
           <TimeAgo date={publishedAt} />
         </p>

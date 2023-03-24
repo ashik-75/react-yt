@@ -4,17 +4,40 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import RootLayout from "./components/layout/RootLayout";
+import DetailLayout from "./components/layout/DetailLayout";
+import MainLayout from "./components/layout/MainLayout";
+import ChannelPage from "./pages/ChannelPage";
 import Homepage from "./pages/Homepage";
 import VideoDetails from "./pages/VideoDetails";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<RootLayout />}>
-        <Route index element={<Homepage />} />
-        <Route path="/watch" element={<VideoDetails />} />
-        <Route path="/related" element={<VideoDetails />} />
+      <Route path="/">
+        <Route
+          index
+          element={
+            <MainLayout>
+              <Homepage />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/watch"
+          element={
+            <DetailLayout>
+              <VideoDetails />
+            </DetailLayout>
+          }
+        />
+        <Route
+          path="/channel/:channelId"
+          element={
+            <MainLayout>
+              <ChannelPage />
+            </MainLayout>
+          }
+        />
       </Route>
     )
   );
