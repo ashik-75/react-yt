@@ -2,10 +2,10 @@ function ChannelDetails({ data }: any) {
   console.log("Channel Data: ", data);
   return (
     <div className="space-y-10">
-      <div className="w-full h-[300px]">
+      <div className="h-[250px] w-full">
         <img
           src={data?.brandingSettings?.image?.bannerExternalUrl}
-          className="w-full h-full object-cover object-center"
+          className=" h-full w-full object-cover object-center"
           alt=""
         />
       </div>
@@ -24,7 +24,7 @@ function ChannelDetails({ data }: any) {
           <div className="flex space-x-4">
             <p className="font-medium">{data?.snippet?.customUrl}</p>
             <div className="space-x-1">
-              <span>
+              <span className="font-bold">
                 {parseInt(data?.statistics?.subscriberCount).toLocaleString(
                   "en-Us"
                 )}
@@ -32,7 +32,7 @@ function ChannelDetails({ data }: any) {
               <span>Subscribers</span>
             </div>
             <div className="space-x-2">
-              <span>
+              <span className="font-bold">
                 {parseInt(data?.statistics?.videoCount).toLocaleString("en-Us")}
               </span>
               <span>Videos</span>

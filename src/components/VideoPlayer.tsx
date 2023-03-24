@@ -74,9 +74,9 @@ function VideoPlayer({ video }: { video: VideoDetailsType }) {
         {/* channel info and likes count */}
         <div className="flex items-center justify-between">
           {/* channel info */}
-          <div className="flex gap-x-2">
+          <div className="flex gap-x-4 items-center">
             {/* channel image */}
-            <div className="h-20 w-20 rounded-full ">
+            <div className="h-16 w-16 shrink-0 rounded-full ">
               <img
                 src={channelData?.items?.[0]?.snippet?.thumbnails?.high?.url}
                 className="object-cover object-center"
@@ -99,7 +99,7 @@ function VideoPlayer({ video }: { video: VideoDetailsType }) {
                     channelData?.items?.[0]?.statistics?.subscriberCount
                   ).toLocaleString("en-Us")}
                 </span>
-                <span>Subscribers</span>
+                <span> Subscribers</span>
               </p>
             </div>
           </div>
