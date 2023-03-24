@@ -44,13 +44,18 @@ function RelatedVideoCard({
         </Link>
       </div>
 
-      <div className="pt-3 space-y-2">
-        <h1 className="font-medium text-sm">{title.slice(0, 40)}</h1>
-        <p className="flex gap-2 items-center">
-          <span className="font-bold text-sm">{channelTitle}</span>
-          <CheckedIcon />
+      <div className="space-y-1">
+        <h1 className="font-medium">{title.slice(0, 40)}</h1>
+        <p className="">
+          <Link
+            to={`/channel/${channelId}`}
+            className="hover:underline flex gap-2 items-center underline-offset-2"
+          >
+            <span className="font-bold text-sm">{channelTitle}</span>
+            <CheckedIcon />
+          </Link>
         </p>
-        <p className="text-sm">
+        <p className="text-sm text-gray-500">
           <TimeAgo date={publishedAt} />
         </p>
       </div>

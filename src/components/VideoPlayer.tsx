@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ThumbsUp } from "lucide-react";
 import { useState } from "react";
 import ReactPlayer from "react-player";
+import { Link } from "react-router-dom";
 import { getData } from "../services";
 import { VideoDetailsType } from "../types/video.types";
 import Comments from "./Comments";
@@ -41,13 +42,18 @@ function VideoPlayer({ video }: { video: VideoDetailsType }) {
     enabled: isStart,
   });
 
-  console.log("Comment: ", {
-    data,
-    isLoading,
-    isError,
-    isPaused,
-    isInitialLoading,
+  const {
+    data: channelData,
+    isLoading: channelLoading,
+    isError: isChannelError,
+    error: channelError,
+  } = useQuery({
+    queryKey: ["channel", snippet?.channelId],
+    queryFn: () => getData(`/channels?id=${snippet.channelId}`),
+    enabled: !!snippet?.channelId,
   });
+
+  console.log("Channel Data: ", channelData);
 
   return (
     <div>
@@ -61,10 +67,43 @@ function VideoPlayer({ video }: { video: VideoDetailsType }) {
         />
       </div>
 
+      {/* video details sections */}
       <div className="pt-5 space-y-2">
+        {/* title */}
         <h2 className="font-semibold text-gray-800">{snippet?.title}</h2>
+        {/* channel info and likes count */}
         <div className="flex items-center justify-between">
-          <h3 className="font-bold">{snippet?.channelTitle}</h3>
+          {/* channel info */}
+          <div className="flex gap-x-2">
+            {/* channel image */}
+            <div className="h-20 w-20 rounded-full ">
+              <img
+                src={channelData?.items?.[0]?.snippet?.thumbnails?.high?.url}
+                className="object-cover object-center"
+                alt=""
+              />
+            </div>
+            {/* channel name & subscriber */}
+            <div>
+              <h3 className="font-bold">
+                <Link
+                  to={`/channel/${snippet?.channelId}`}
+                  className="hover:underline underline-offset-2"
+                >
+                  {snippet?.channelTitle}
+                </Link>
+              </h3>
+              <p>
+                <span>
+                  {parseInt(
+                    channelData?.items?.[0]?.statistics?.subscriberCount
+                  ).toLocaleString("en-Us")}
+                </span>
+                <span>Subscribers</span>
+              </p>
+            </div>
+          </div>
+          {/* likes */}
           <p className="flex gap-x-2 items-center">
             <ThumbsUp className="h-5 w-5" />
             <span className="font-semibold">
@@ -87,6 +126,7 @@ function VideoPlayer({ video }: { video: VideoDetailsType }) {
         </p>
       </div>
 
+      {/* comment sections */}
       <div className="space-y-5">
         <button
           onClick={() => setIsStart(true)}
