@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getData } from "../services";
 import { VideoType } from "../types/video.types";
 import RelatedVideoCard from "./RelatedVideoCard";
-import VideoListSkeleton from "./Skeleton/VideoListSkeleton";
+import RelatedVideosSkeleton from "./Skeleton/RelatedVideosSkeleton";
 
 function RelatedVideos({ videoId }: { videoId?: string }) {
   const {
@@ -19,7 +19,7 @@ function RelatedVideos({ videoId }: { videoId?: string }) {
   return (
     <div>
       {isLoading ? (
-        <VideoListSkeleton item={1} />
+        <RelatedVideosSkeleton />
       ) : isError ? (
         <div>Wrong happen</div>
       ) : (

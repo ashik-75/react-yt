@@ -9,9 +9,9 @@ function VideoSkl() {
   );
 }
 
-function VideoListSkeleton() {
+function RelatedVideosSkeleton() {
   return (
-    <div className={`grid grid-cols-1 sm:grid-cols-4 gap-5`}>
+    <div className={`grid grid-cols-1  gap-5`}>
       {[...Array(10).keys()].map((v) => (
         <VideoSkl key={v} />
       ))}
@@ -19,4 +19,4 @@ function VideoListSkeleton() {
   );
 }
 
-export default VideoListSkeleton;
+export default RelatedVideosSkeleton;

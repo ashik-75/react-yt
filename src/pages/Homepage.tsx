@@ -17,7 +17,7 @@ function Homepage() {
   return (
     <div>
       {isLoading ? (
-        <VideoListSkeleton item={4} />
+        <VideoListSkeleton />
       ) : isError ? (
         <div>Error Happenend</div>
       ) : (

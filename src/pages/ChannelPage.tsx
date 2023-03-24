@@ -43,7 +43,7 @@ function ChannelPage() {
 
       <div>
         {isVLoading ? (
-          <VideoListSkeleton item={4} />
+          <VideoListSkeleton />
         ) : isVError ? (
           <div>Error</div>
         ) : (
