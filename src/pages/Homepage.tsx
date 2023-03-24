@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
+import VideoDetailsSkeleton from "../components/Skeleton/VideoDetailsSkeleton";
+import VideoListSkeleton from "../components/Skeleton/VideoListSkeleton";
 import Videos from "../components/Videos";
 import { getData } from "../services";
 
@@ -15,12 +17,14 @@ function Homepage() {
   return (
     <div>
       {isLoading ? (
-        <div>Loading ...</div>
+        <VideoListSkeleton item={4} />
       ) : isError ? (
         <div>Error Happenend</div>
       ) : (
         <Videos videos={data?.items} />
       )}
+
+      <VideoDetailsSkeleton />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import ChannelDetails from "../components/ChannelDetails";
+import VideoListSkeleton from "../components/Skeleton/VideoListSkeleton";
 import Videos from "../components/Videos";
 import { getData } from "../services";
 
@@ -41,7 +42,7 @@ function ChannelPage() {
 
       <div>
         {isVLoading ? (
-          <div>V Loading...</div>
+          <VideoListSkeleton item={4} />
         ) : isVError ? (
           <div>Error</div>
         ) : (
