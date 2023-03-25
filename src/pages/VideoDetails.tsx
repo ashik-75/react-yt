@@ -17,8 +17,8 @@ function VideoDetails() {
   return (
     <div className="max-w-7xl mx-auto p-5">
       <div>
-        <div className="grid grid-cols-6 gap-10">
-          <div className="col-span-4 ">
+        <div className="grid sm:grid-cols-6 gap-10">
+          <div className="sm:col-span-4 ">
             {isLoading ? (
               <VideoDetailsSkeleton />
             ) : isError ? (
@@ -28,7 +28,7 @@ function VideoDetails() {
             )}
           </div>
 
-          <div className="col-span-2">
+          <div className="sm:col-span-2">
             <RelatedVideos videoId={videoId!} />
           </div>
         </div>

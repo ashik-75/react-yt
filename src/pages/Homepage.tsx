@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
-import VideoDetailsSkeleton from "../components/Skeleton/VideoDetailsSkeleton";
 import VideoListSkeleton from "../components/Skeleton/VideoListSkeleton";
 import Videos from "../components/Videos";
 import { getData } from "../services";
@@ -23,8 +22,6 @@ function Homepage() {
       ) : (
         <Videos videos={data?.items} />
       )}
-
-      <VideoDetailsSkeleton />
     </div>
   );
 }

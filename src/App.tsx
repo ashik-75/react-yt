@@ -4,16 +4,19 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import ErrorHandler from "./components/ErrorHandler";
 import DetailLayout from "./components/layout/DetailLayout";
 import MainLayout from "./components/layout/MainLayout";
+import RootLayout from "./components/layout/RootLayout";
 import ChannelPage from "./pages/ChannelPage";
 import Homepage from "./pages/Homepage";
+import NotFoundPage from "./pages/NotFoundPage";
 import VideoDetails from "./pages/VideoDetails";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/">
+      <Route path="/" element={<RootLayout />}>
         <Route
           index
           element={
@@ -24,6 +27,7 @@ function App() {
         />
         <Route
           path="/watch"
+          errorElement={<ErrorHandler />}
           element={
             <DetailLayout>
               <VideoDetails />
@@ -38,6 +42,8 @@ function App() {
             </MainLayout>
           }
         />
+
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
   );

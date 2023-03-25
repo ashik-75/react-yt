@@ -38,7 +38,7 @@ function VideoPlayer({ video }: { video: VideoDetailsType }) {
 
   const { data, isLoading, isError, isPaused, isInitialLoading } = useQuery({
     queryKey: ["comment", id],
-    queryFn: () => getData(`/commentThreads?videoId=${id}`),
+    queryFn: () => getData(`/commentThreads?videoId=${id}&maxResults=50`),
     enabled: isStart,
   });
 
@@ -56,8 +56,8 @@ function VideoPlayer({ video }: { video: VideoDetailsType }) {
   console.log("Channel Data: ", channelData);
 
   return (
-    <div>
-      <div className="bg-purple-600 aspect-video">
+    <div className=" overflow-hidden w-[90vw] sm:w-full">
+      <div className="aspect-video w-full">
         <ReactPlayer
           url={`https://www.youtube.com/watch?v=${id}`}
           playing={true}
@@ -70,13 +70,15 @@ function VideoPlayer({ video }: { video: VideoDetailsType }) {
       {/* video details sections */}
       <div className="pt-5 space-y-2">
         {/* title */}
-        <h2 className="font-semibold text-gray-800">{snippet?.title}</h2>
+        <h2 className="font-semibold text-xl text-gray-800">
+          {snippet?.title}
+        </h2>
         {/* channel info and likes count */}
         <div className="flex items-center justify-between">
           {/* channel info */}
           <div className="flex gap-x-4 items-center">
             {/* channel image */}
-            <div className="h-16 w-16 shrink-0 rounded-full ">
+            <div className="h-16 w-16 shrink-0 rounded-full overflow-hidden ">
               <img
                 src={channelData?.items?.[0]?.snippet?.thumbnails?.high?.url}
                 className="object-cover object-center"
@@ -117,7 +119,7 @@ function VideoPlayer({ video }: { video: VideoDetailsType }) {
           </span>
           <span>Views</span>
         </p>
-        <p>{snippet.description}</p>
+        <p>{snippet.description.slice(0, 200)}</p>
         <p className="flex gap-x-2 items-center">
           <span className="font-semibold">
             {parseInt(statistics?.commentCount).toLocaleString("en-US")}

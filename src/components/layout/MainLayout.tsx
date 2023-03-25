@@ -1,21 +1,16 @@
 import React from "react";
 import Sidebar from "../Sidebar";
-import Topbar from "../Topbar";
 
 function MainLayout({ children }: { children: React.ReactNode }) {
   return (
-    <main>
-      <Topbar />
-
-      <div className="grid grid-cols-12 max-w-7xl mx-auto ">
-        <div className="col-span-2 border-r p-5 h-[calc(100vh-104px)] overflow-y-scroll scrollbar-hide">
-          <Sidebar />
-        </div>
-        <div className="col-span-10 p-5  h-[calc(100vh-104px)] overflow-y-scroll scrollbar-hide">
-          {children}
-        </div>
+    <div className="grid grid-cols-1 sm:grid-cols-12 h-[100vh] ">
+      <div className="sm:col-span-2 border-r">
+        <Sidebar />
       </div>
-    </main>
+      <div className="sm:col-span-10  p-5 mt-[83px] overflow-y-scroll scrollbar-hide">
+        {children}
+      </div>
+    </div>
   );
 }
 
