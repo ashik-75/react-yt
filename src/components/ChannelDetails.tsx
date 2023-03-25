@@ -1,3 +1,5 @@
+import { formatViews } from "../utils/formatter";
+
 function ChannelDetails({ data }: any) {
   console.log("Channel Data: ", data);
   return (
@@ -25,15 +27,13 @@ function ChannelDetails({ data }: any) {
             <p className="font-medium">{data?.snippet?.customUrl}</p>
             <div className="space-x-1">
               <span className="font-bold">
-                {parseInt(data?.statistics?.subscriberCount).toLocaleString(
-                  "en-Us"
-                )}
+                {formatViews(data?.statistics?.subscriberCount)}
               </span>
               <span>Subscribers</span>
             </div>
             <div className="space-x-2">
               <span className="font-bold">
-                {parseInt(data?.statistics?.videoCount).toLocaleString("en-Us")}
+                {formatViews(data?.statistics?.videoCount)}
               </span>
               <span>Videos</span>
             </div>

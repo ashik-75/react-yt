@@ -1,4 +1,5 @@
 import { ExternalLink, Film, Home, Play, Podcast, Trophy } from "lucide-react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const categories = [
@@ -91,6 +92,7 @@ const categories = [
 
 function Sidebar() {
   const navigate = useNavigate();
+  const [activeMenu, setActiveMenu] = useState("home");
 
   return (
     <div className="pt-5 pl-5 hidden sm:block h-[calc(100vh-83px)] mt-[83px] space-y-3 scrollbar-hide bg-zinc-100 overflow-y-scroll">
@@ -99,8 +101,13 @@ function Sidebar() {
         return (
           <button
             key={id}
-            onClick={() => navigate(`/?q=${title}`)}
-            className="flex items-center gap-3 rounded hover:bg-gray-100 py-2 px-4 cursor-pointer"
+            onClick={() => {
+              navigate(`/?q=${title}`);
+              setActiveMenu(title);
+            }}
+            className={`flex items-center gap-3 rounded hover:bg-gray-200 py-2 px-4 cursor-pointer ${
+              title === activeMenu && "bg-slate-200"
+            }`}
           >
             <Icon className="h-5 w-5" />
             <span className="capitalize">{title}</span>

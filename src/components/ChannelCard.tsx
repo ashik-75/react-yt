@@ -19,7 +19,7 @@ function CheckedIcon() {
   );
 }
 
-function VideoCard({
+function ChannelCard({
   id: { videoId },
   snippet: {
     channelId,
@@ -34,7 +34,7 @@ function VideoCard({
 }: VideoType) {
   return (
     <div>
-      <Link to={`/watch?v=${videoId}`}>
+      <Link to={`/channel/${channelId}`}>
         <div className="rounded-xl overflow-hidden max-h-[270px]">
           <img
             src={url}
@@ -45,9 +45,7 @@ function VideoCard({
       </Link>
 
       <div className="pt-3">
-        <Link to={`/watch?v=${videoId}`} className="hover:underline">
-          <h1 className="font-medium">{title.slice(0, 60)}</h1>
-        </Link>
+        <h1 className="font-medium">{title.slice(0, 60)}</h1>
         <Link to={`/channel/${channelId}`}>
           <p className="flex gap-2 items-center hover:underline">
             <span className="font-bold">{channelTitle}</span>
@@ -62,4 +60,4 @@ function VideoCard({
   );
 }
 
-export default VideoCard;
+export default ChannelCard;

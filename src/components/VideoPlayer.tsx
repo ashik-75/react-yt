@@ -5,6 +5,7 @@ import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 import { getData } from "../services";
 import { VideoDetailsType } from "../types/video.types";
+import { formatViews } from "../utils/formatter";
 import Comments from "./Comments";
 
 function Loader() {
@@ -96,10 +97,10 @@ function VideoPlayer({ video }: { video: VideoDetailsType }) {
                 </Link>
               </h3>
               <p>
-                <span>
-                  {parseInt(
+                <span className="">
+                  {formatViews(
                     channelData?.items?.[0]?.statistics?.subscriberCount
-                  ).toLocaleString("en-Us")}
+                  )}
                 </span>
                 <span> Subscribers</span>
               </p>
@@ -115,7 +116,7 @@ function VideoPlayer({ video }: { video: VideoDetailsType }) {
         </div>
         <p className="flex gap-x-2 items-center">
           <span className="font-semibold">
-            {parseInt(statistics?.viewCount).toLocaleString("en-US")}
+            {formatViews(statistics?.viewCount)}
           </span>
           <span>Views</span>
         </p>
