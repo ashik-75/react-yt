@@ -36,6 +36,7 @@ function App() {
         />
         <Route
           path="/channel/:channelId"
+          errorElement={<ErrorHandler />}
           element={
             <MainLayout>
               <ChannelPage />

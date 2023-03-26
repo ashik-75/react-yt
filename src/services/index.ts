@@ -4,8 +4,8 @@ const BASE_URL = `https://youtube-v31.p.rapidapi.com`;
 export async function getData(url: string) {
   const options = {
     headers: {
-      "X-RapidAPI-Key": "0e7881138amsh8a0036d702a66a8p1b519bjsn6b2465917ddb",
-      "X-RapidAPI-Host": "youtube-v31.p.rapidapi.com",
+      "X-RapidAPI-Key": import.meta.env.VITE_APP_RAPID_API_KEY,
+      "X-RapidAPI-Host": import.meta.env.VITE_APP_RAPID_API_HOST,
     },
   };
 
