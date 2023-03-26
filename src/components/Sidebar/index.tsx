@@ -95,25 +95,27 @@ function Sidebar() {
   const [activeMenu, setActiveMenu] = useState("home");
 
   return (
-    <div className="pt-5 pl-5 hidden sm:block h-[calc(100vh-83px)] mt-[83px] space-y-3 scrollbar-hide bg-zinc-100 overflow-y-scroll">
-      {categories.map((category) => {
-        const { icon: Icon, title, id } = category;
-        return (
-          <button
-            key={id}
-            onClick={() => {
-              navigate(`/?q=${title}`);
-              setActiveMenu(title);
-            }}
-            className={`flex items-center gap-3 rounded hover:bg-gray-200 py-2 px-4 cursor-pointer ${
-              title === activeMenu && "bg-slate-200"
-            }`}
-          >
-            <Icon className="h-5 w-5" />
-            <span className="capitalize">{title}</span>
-          </button>
-        );
-      })}
+    <div className="sm:col-span-2 border-r hidden sm:block">
+      <div className="sm:fixed pl-5 pt-5 left-0 top-[83px] w-[317px] z-50 h-[calc(100vh-83px)]  space-y-5 scrollbar-hide bg-zinc-100 overflow-y-scroll">
+        {categories.map((category) => {
+          const { icon: Icon, title, id } = category;
+          return (
+            <button
+              key={id}
+              onClick={() => {
+                navigate(`/?q=${title}`);
+                setActiveMenu(title);
+              }}
+              className={`flex items-center gap-3 rounded hover:bg-gray-200 py-2 px-4 cursor-pointer ${
+                title === activeMenu && "bg-slate-200"
+              }`}
+            >
+              <Icon className="h-5 w-5" />
+              <span className="capitalize">{title}</span>
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }

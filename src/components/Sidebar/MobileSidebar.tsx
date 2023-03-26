@@ -95,7 +95,7 @@ function MobileSidebar() {
   const [activeMenu, setActiveMenu] = useState("home");
 
   return (
-    <div className="sm:hidden py-3 pl-5 mt-[80px] space-x-3 scrollbar-hide flex flex-row items-center bg-zinc-100 overflow-y-scroll">
+    <div className="fixed left-0 top-[82px] sm:hidden py-3 pl-5  space-x-3 scrollbar-hide flex flex-row items-center bg-zinc-100 overflow-y-scroll">
       {categories.map((category) => {
         const { icon: Icon, title, id } = category;
         return (
