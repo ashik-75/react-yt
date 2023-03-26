@@ -6,7 +6,7 @@ function ChannelDetails({ data }: any) {
     <div className="space-y-10">
       <div className="h-[250px] w-full">
         <img
-          src={data?.brandingSettings?.image?.bannerExternalUrl}
+          src={data?.brandingSettings?.image?.bannerExternalUrl || "/city.jpg"}
           className=" h-full w-full object-cover object-center"
           alt=""
         />
