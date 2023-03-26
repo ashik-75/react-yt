@@ -7,7 +7,7 @@ function Topbar() {
       <div className="sm:px-5 items-center justify-between flex">
         <div>
           <Link to={"/"}>
-            <img src="/yt.png" className="h-10 w-10" alt="" />
+            <img src="/youtube.png" className="h-10 w-10" alt="" />
           </Link>
         </div>
         <div className="sm:w-[50%]">
