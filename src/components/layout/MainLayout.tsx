@@ -7,7 +7,7 @@ function MainLayout({ children }: { children: React.ReactNode }) {
       <div className="sm:col-span-2 border-r">
         <Sidebar />
       </div>
-      <div className="sm:col-span-10  p-5 mt-[83px] overflow-y-scroll scrollbar-hide">
+      <div className="sm:col-span-10  p-5 sm:mt-[83px] overflow-y-scroll scrollbar-hide">
         {children}
       </div>
     </div>
